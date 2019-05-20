@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Divergent.Sales.Messages.Events;
 using ITOps.EndpointConfig;
 using NServiceBus;
 using NServiceBus.Logging;
@@ -25,6 +26,7 @@ namespace Divergent.Customers
                         connectionString,
                         routing =>
                         {
+                            routing.RegisterPublisher(typeof(OrderSubmittedEvent), "Divergent.Sales");
                         });
 
                 endpoint = await Endpoint.Start(endpointConfiguration);

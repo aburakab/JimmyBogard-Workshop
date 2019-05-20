@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Divergent.Finance.PaymentClient;
+using Divergent.Sales.Messages.Events;
 using ITOps.EndpointConfig;
 using NServiceBus;
 using NServiceBus.Logging;
@@ -26,6 +27,7 @@ namespace Divergent.Finance
                         connectionString,
                         routing =>
                         {
+                            routing.RegisterPublisher(typeof(OrderSubmittedEvent), "Divergent.Sales");
                         });
 
                 endpointConfiguration.RegisterComponents(registration =>
