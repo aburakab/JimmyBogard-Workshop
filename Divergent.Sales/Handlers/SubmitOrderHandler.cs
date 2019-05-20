@@ -41,6 +41,9 @@ namespace Divergent.Sales.Handlers
                 db.Orders.Add(order);
                 await db.SaveChangesAsync();
 
+                /// <summary>
+                /// mnajeeb: Added by Me.
+                /// </summary>
                 await context.Publish(new OrderSubmittedEvent
                 {
                     OrderId = order.Id,

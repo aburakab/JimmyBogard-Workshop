@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Divergent.Sales.Messages.Events
 {
+    /// <summary>
+    /// mnajeeb: Added by Me.
+    /// </summary>
     public class OrderSubmittedEvent
     {
         public int OrderId { get; set; }
